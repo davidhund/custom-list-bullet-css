@@ -1,0 +1,145 @@
+/**
+ * Custom List Bullet CSS
+ *
+ * Several ways to style custom list bullets with CSS
+ * - Without using extra elements such as span
+ * - While correctly lining up wrapped lines
+ */
+
+
+/**
+ * =1 Some baseline list (reset) styling
+ */
+.list-decoration {
+	padding-left: 0;
+	list-style: none;
+	line-height: 1.5;
+}
+
+
+/**
+ * =2 data-uri svg list-style-image
+ */
+.list-decoration--svg li {
+	list-style-position: outside;
+	list-style-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNCIgaGVpZ2h0PSIxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBpZD0iYnVsbGV0IiByPSIyIiBjeT0iOCIgY3g9IjIiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIwIiBmaWxsPSIjMENDIi8+Cjwvc3ZnPg==);
+	margin-left: 1em;
+}
+
+
+/**
+ * =3 data-uri svg background-image
+ */
+.list-decoration--svgbg li {
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNCIgaGVpZ2h0PSIxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBpZD0iYnVsbGV0IiByPSIyIiBjeT0iOCIgY3g9IjIiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIwIiBmaWxsPSIjMENDIi8+Cjwvc3ZnPg==);
+	background-repeat: no-repeat;
+	background-size: .25em;
+	background-position: 0 .25em;
+	padding-left: 1em;
+}
+
+
+/**
+ * =4 pseudo element, absolutely positioned
+ */
+.list-decoration--before li {
+	padding-left: 1em;
+	position: relative;
+}
+	.list-decoration--before li:before {
+		color: #0CC;
+		content: "•";
+		position: absolute;  
+		left: 0;
+	}
+
+
+/**
+ * =5 floated pseudo-element and negative margins
+ */
+.list-decoration--float li {
+	padding-left: 1em;
+}
+	.list-decoration--float li:before {
+		color: #0CC;
+		content: "•";
+		float: left;
+		margin-left: -1em;
+	}
+
+
+/**
+ * =5 Flexbox li and pseudo-element
+ */
+.list-decoration--flex li {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+	.list-decoration--flex li:before {
+		color: #0CC;
+		content: "•";
+		width: 1em;
+		-webkit-flex-shrink: 0;
+		-ms-flex-negative: 0;
+		flex-shrink: 0;
+	}
+
+
+/**
+ * =6 display:table li and pseudo-element
+ */
+.list-decoration--table li {
+	display: table;
+}
+	.list-decoration--table li:before {
+		color: #0CC;
+		content: "•";
+		display: table-cell;
+		width: 1em;
+	}
+
+
+/**
+ * =7 Block li and pseudo-element with negative margins
+ */
+.list-decoration--block li {
+	padding-left: 1em; /* toggle for 'list-style-position' */
+}
+	.list-decoration--block li:before {
+		color: #0CC;
+		content: "•";
+		display: block;
+		width: 1em;
+		margin: 0 0 -1.5em -1em;
+	}
+
+
+/**
+ * =8 bordered pseudo-element: fails!
+ */
+.list-decoration--border li:before {
+	content: "";
+	display: inline-block;
+	width: 0;
+	height: 0;
+	border-radius: .25em;
+	border: .125em solid #C00;
+	line-height: .25em;
+	vertical-align: middle;
+	margin-right:.5em;
+}
+
+
+/**
+ * =8 gradient background
+ */
+.list-decoration--gradient li {
+	padding-left: 1em;
+	background-image: -webkit-radial-gradient(#0CC .125em, transparent .125em);
+	background-image: radial-gradient(#0CC .125em, transparent .125em);
+	background-size: .5em .5em;
+	background-position: 0 .4em;
+	background-repeat: no-repeat;
+}

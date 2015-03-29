@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Custom List Bullets CSS</title>
+	<link rel="stylesheet" href="custom-list-bullet.css">
+
+	<style>
+	/* 'app' styles */
+	html, body { font-family: droid sans, sans-serif; }
+	html { font-size: 100%; margin: 0; padding: 0; background: #EEE;}
+	body { margin: 0 auto; max-width: 40em; padding: 2em; background: #FFF;}
+	.toc-list { float: right; margin: 0 0 1.5em 1.5em; line-height: 1.5}
+	.toc-list li {  background: #EFEFEF; padding: .125em .5em;}
+	</style>
+</head>
+<body>
+	<h1>Custom List Bullet CSS</h1>
+
+	<ol class="toc-list">
+		<li><a href="#plain">Plain list</a></li>
+		<li><a href="#list-style-image">list-style-image</a></li>
+		<li><a href="#background-image">background-image</a></li>
+		<li><a href="#pseudo">:before</a></li>
+		<li><a href="#pseudo-float">floated :before</a></li>
+		<li><a href="#flexbox">display: flex</a></li>
+		<li><a href="#table">display: table</a></li>
+		<li><a href="#block">display: block</a></li>
+		<li><a href="#border">bordered :before</a></li>
+		<li><a href="#gradient">(Radial) gradient</a></li>
+	</ol>
+
+	<p>I tried to find all the ways to style custom list bullets <em>with no extra elements</em> and while correctly lining up wrapped lines. There are quite a few. Can you find more?</p>
+
+	<p>One thing to take into account is the fact that we want to avoid the typical float issue where wrapped list items do not match up. Take a look at every 3d item, it should line up correctly..</p>
+
+	<p>Disclaimer: some of these solutions are not very practical. Use something robust and simple in real code ;-)</p>
+
+	<h2 id="plain">Plain, list</h2>
+	<p>This is the <em>baseline</em>: a plain list with no list styling…</p>
+	<ul class="list-decoration">
+	  <li>A list item</li>
+	  <li>Bullets and padding are removed</li>
+	  <li>Another list item that wraps to a different line.
+	    <br/>This happens a lot and annoys us to no end...
+	  </li>
+	  <li>Definitely…</li>
+	</ul>
+
+	<h2 id="list-style-image">list-style-image</h2>
+	<p>Setting a <code>list-style-image</code> on the <code>li</code>. I've used a data-uri'd SVG</p>
+	<ul class="list-decoration list-decoration--svg">
+	  <li>data-uri <code>list-style-image</code></li>
+	  <li>Another list item</li>
+	  <li>Another list item that wraps to a different line.
+	    <br/>This happens a lot and annoys us to no end...
+	  </li>
+	  <li>Definitely…</li>
+	</ul>
+
+	<h2 id="background-image">background-image</h2>
+	<p>Setting a <code>background-image</code> on the <code>li</code>. I've used a data-uri'd SVG</p>
+	<ul class="list-decoration list-decoration--svgbg">
+	  <li>data-uri <code>background-image</code></li>
+	  <li>Another list item</li>
+	  <li>Another list item that wraps to a different line.
+	    <br/>This happens a lot and annoys us to no end...
+	  </li>
+	  <li>Definitely…</li>
+	</ul>
+
+	<h2 id="pseudo">Pseudo-element :before</h2>
+	<p>Using an absolutely positioned <code>:before</code> pseudo-element with a <code>content</code> value</p>
+	<ul class="list-decoration list-decoration--before">
+	  <li>A list item absolutely positioned <code>:before</code></li>
+	  <li>Another list item</li>
+	  <li>Another list item that wraps to a different line.
+	    <br/>This happens a lot and annoys us to no end...
+	  </li>
+	  <li>Definitely…</li>
+	</ul>
+
+	<h2 id="pseudo-float">Floated pseudo-element</h2>
+	<p>Using an floated <code>:before</code> pseudo-element with negative margins</p>
+	<ul class="list-decoration list-decoration--float">
+	  <li>A list item with floated <code>:before</code></li>
+	  <li>Another list item</li>
+	  <li>Another list item that wraps to a different line.
+	    <br/>This happens a lot and annoys us to no end...
+	  </li>
+	  <li>Definitely…</li>
+	</ul>
+
+	<h2 id="flexbox">Flexbox list item</h2>
+	<p>Setting the <code>li</code> to <code>display:flex</code> and using a pseudo-element with a <code>content</code> value</p>
+	<ul class="list-decoration list-decoration--flex">
+	  <li>A <code>display:flex</code> list item</li>
+	  <li>Another list item</li>
+	  <li>Another list item that wraps to a different line.
+	    <br/>This happens a lot and annoys us to no end...
+	  </li>
+	  <li>Definitely…</li>
+	</ul>
+
+	<h2 id="table">Table list item</h2>
+	<p>Setting the <code>li</code> to <code>display:table</code> and using a pseudo-element with a <code>content</code> value</p>
+	<ul class="list-decoration list-decoration--table">
+	  <li>A <code>display:table</code> list item</li>
+	  <li>Another list item</li>
+	  <li>Yet another list item that should wrap to a different line. This happens a lot and annoys us to no end...</li>
+	    <li>Definitely…</li>
+	</ul>
+
+	<h2 id="block">Block list item</h2>
+	<p>Setting the <code>li</code> to <code>display:block</code> and using a pseudo-element with a <code>content</code> value and negative margins</p>
+	<ul class="list-decoration list-decoration--block">
+	  <li>A <code>display:block</code> list item</li>
+	  <li>Another list item</li>
+	  <li>Yet another list item that should wrap to a different line. This happens a lot and annoys us to no end...</li>
+	    <li>Definitely…</li>
+	</ul>
+
+	<h2 id="border">Bordered list item</h2>
+	<p>Setting a <code>border</code> on the <code>li:before</code> pseudo-element. This fails wrapped list items!</p>
+	<ul class="list-decoration list-decoration--border">
+	  <li>A list item with a <code>border</code></li>
+	  <li>Another list item</li>
+	  <li style="color: #C00">Another list item that wraps to a different line.
+	    <br/>This happens a lot and annoys us to no end...
+	  </li>
+	  <li>Definitely…</li>
+	</ul>
+
+	<h2 id="gradient">Radial Gradient</h2>
+	<p>Setting a radial gradient <code>background</code> on the <code>li</code></p>
+	<ul class="list-decoration list-decoration--gradient">
+	  <li>A list item with radial gradient</li>
+	  <li>Another list item</li>
+	  <li>Another list item that wraps to a different line.
+	    <br/>This happens a lot and annoys us to no end...
+	  </li>
+	  <li>Definitely…</li>
+	</ul>
+
+	<p>That's all. Can you find more?! Let me know: David Hund | <a href="https://twitter.com/valuedstandards">@valuedstandards</a></p>
+</body>
+</html>
