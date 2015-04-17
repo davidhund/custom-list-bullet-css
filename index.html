@@ -13,7 +13,8 @@
 	html { font-size: 100%; margin: 0; padding: 0; background: #EEE;}
 	body { margin: 0 auto; max-width: 40em; padding: 2em; background: #FFF;}
 	.toc-list { float: right; margin: 0 0 1.5em 1.5em; line-height: 1.5}
-	.toc-list li {  background: #EFEFEF; padding: .125em .5em;}
+	.toc-list li, .msg {  background: #EFEFEF; padding: .125em .5em;}
+	.msg { display: block; padding: .5em; border: 1px solid #DDD; margin-right: 30%; }
 	</style>
 </head>
 <body>
@@ -36,7 +37,9 @@
 
 	<p>One thing to take into account is the fact that we want to avoid the typical float issue where wrapped list items do not match up. Take a look at every 3d item, it should line up correctly..</p>
 
-	<p>Disclaimer: some of these solutions are not very practical. Use something robust and simple in real code ;-)</p>
+	<p><strong>Disclaimer:</strong> some of these solutions are not very practical. Use something robust and simple in real code ;-)</p>
+
+	<p class="msg"><a href="https://github.com/davidhund/custom-list-bullet-css">Fork this on Github</a>, <a href="https://github.com/davidhund/custom-list-bullet-css/issues">Comment</a> or <a href="https://twitter.com/valuedstandards">@valuedstandards</a></p>
 
 	<h2 id="plain">Plain, list</h2>
 	<p>This is the <em>baseline</em>: a plain list with no list styling…</p>
